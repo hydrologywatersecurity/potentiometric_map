@@ -59,9 +59,16 @@ If there are changes in potentiometric_map_tutorial/ or workflow:
 1. GitHub Actions starts `deploy` job
 2. Node.js 20 is configured
 3. MyST CLI is installed globally
-4. `myst build --html` is executed inside `potentiometric_map_tutorial/`
-5. Compiled files are collected from `potentiometric_map_tutorial/_build/html`
-6. Page is published at `https://hydrologywatersecurity.github.io/potentiometric_map/`
+4. `BASE_URL` environment variable is set to `/potentiometric_map` (required for GitHub Pages subfolder deployment)
+5. `myst build --html` is executed inside `potentiometric_map_tutorial/`
+6. Compiled files are collected from `potentiometric_map_tutorial/_build/html`
+7. Page is published at `https://hydrologywatersecurity.github.io/potentiometric_map/`
+
+### Important: BASE_URL Configuration
+
+Since the site is deployed to a GitHub Pages subfolder (`/potentiometric_map`), the `BASE_URL` environment variable must be set during the build. This ensures all internal links are generated correctly.
+
+**MyST Reference**: [Custom domains and the base URL](https://mystmd.org/guide/deployment#custom-domains-and-the-base-url)
 
 ### Timing
 - Deployment usually takes 1-2 minutes

@@ -24,7 +24,6 @@ project:
 
 site:
   template: book-theme
-  base_url: https://hydrologywatersecurity.github.io/potentiometric_map/
   github: https://github.com/hydrologywatersecurity/potentiometric_map
   nav:
     - title: GitHub

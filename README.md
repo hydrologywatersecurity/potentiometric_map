@@ -59,6 +59,8 @@ myst build --html
 myst serve
 ```
 
+**Note**: When deployed to GitHub Pages, the `BASE_URL` environment variable is automatically set to `/potentiometric_map` in the workflow. This ensures links work correctly in the subfolder deployment.
+
 ## 📝 Content Editing
 
 ### Add a Markdown page

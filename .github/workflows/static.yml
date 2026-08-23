@@ -37,6 +37,8 @@ jobs:
         run: npm install -g mystmd
 
       - name: Build site to HTML
+        env:
+          BASE_URL: /potentiometric_map
         run: cd potentiometric_map_tutorial && myst build --html
 
       - name: Setup GitHub Pages
