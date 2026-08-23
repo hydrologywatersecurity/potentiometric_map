@@ -4,21 +4,13 @@ Practical tutorial for spatial interpolation and piezometric analysis in Python.
 
 ## 📚 About the Project
 
-This repository contains an interactive tutorial on creating and analyzing potentiometric maps, developed with MyST (Markedly Structured Text) and hosted on GitHub Pages.
-
-## 🚀 Automatic Publishing
-
-The tutorial page is **automatically published** whenever there is a push to the `main` branch that affects the `potentiometric_map_tutorial/` folder.
-
-### GitHub Actions Workflow
-
-The `.github/workflows/static.yml` file configures:
-
-1. **Trigger**: Detects changes in `potentiometric_map_tutorial/**` or the workflow itself
-2. **Build**: Compiles the MyST site to HTML
-3. **Deploy**: Automatically publishes to GitHub Pages
+This repository contains an interactive tutorial on creating and analyzing potentiometric maps, developed in ArcGIS and published with MyST (Markedly Structured Text) and hosted on GitHub Pages.
 
 **Access**: The page will be available at `https://hydrologywatersecurity.github.io/potentiometric_map/`
+
+## 🌎 Available Dataset
+
+
 
 ## 📁 Repository Structure
 
@@ -124,7 +116,8 @@ Wait ~30 seconds for the page to be available.
 
 ## 👨‍💻 Author
 
-Bruno Ken Marchezepe - USP São Carlos
+M.S. Bruno Ken Marchezepe - University of São Paulo
+Prof. Ph.D. Paulo Tarso Sanches de Oliveira - University of North Carolina at Charlotte
 
 ## 📄 License
 
