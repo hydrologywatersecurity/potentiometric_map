@@ -1,100 +1,100 @@
-# Template - Adicionar Nova Página
+# Template - Add New Page
 
-Este é um arquivo template para adicionar novas páginas ao tutorial.
+This is a template file to add new pages to the tutorial.
 
-## Como usar
+## How to use
 
-1. **Copiar este arquivo** com um novo nome seguindo o padrão: `XX_nome_pagina.md`
-   - Exemplo: `03_interpolacao_espacial.md`, `04_kriging_ordinario.md`
+1. **Copy this file** with a new name following the pattern: `XX_page_name.md`
+   - Example: `03_spatial_interpolation.md`, `04_ordinary_kriging.md`
 
-2. **Editar o conteúdo** seguindo a estrutura MyST/Markdown
+2. **Edit the content** following the MyST/Markdown structure
 
-3. **Adicionar ao `myst.yml`** na seção `toc`:
+3. **Add to `myst.yml`** in the `toc` section:
 
 ```yaml
 toc:
   - file: intro.md
-  - title: "Fundamentos"
+  - title: "Fundamentals"
     children:
       - file: content/01_conceitos_hidrogeologia.md
       - file: content/02_coleta_dados.md
-      - file: content/03_nova_pagina.md  # ← Adicionar aqui
+      - file: content/03_new_page.md  # ← Add here
 ```
 
-## Estrutura Recomendada
+## Recommended Structure
 
-### Cabeçalho (H1)
+### Header (H1)
 ```markdown
-# Título da Página
+# Page Title
 ```
 
-### Seções (H2)
+### Sections (H2)
 ```markdown
-## Introdução
+## Introduction
 
-Parágrafo inicial...
+Initial paragraph...
 
-## Conceitos Principais
+## Main Concepts
 
-Conteúdo...
+Content...
 
-## Exemplos
+## Examples
 
-Código ou exemplos práticos...
+Code or practical examples...
 
-## Conclusão
+## Conclusion
 
-Resumo...
+Summary...
 ```
 
-## Recursos MyST
+## MyST Resources
 
-### Imagens
+### Images
 ```markdown
-![Alt text](../assets/imagem.png)
+![Alt text](../assets/image.png)
 ```
 
-### Código
+### Code
 ```python
-def funcao_exemplo(param):
+def example_function(param):
     return param * 2
 ```
 
-### Referências Cruzadas
+### Cross-references
 ```markdown
-(ref-nome-da-secao)=
-## Seção com referência
+(ref-section-name)=
+## Section with reference
 
-Referência: [Link](ref-nome-da-secao)
+Reference: [Link](ref-section-name)
 ```
 
-### Admonições
+### Admonitions
 ```markdown
 ```{note}
-Nota importante
+Important note
 ```
 
 ```{warning}
-Aviso!
+Warning!
 ```
 ```
 
-### Equações
+### Equations
 ```markdown
 $$
 E = mc^2
 $$
 ```
 
-## Dicas
+## Tips
 
-- Use Markdown puro para máxima compatibilidade
-- Mantenha nomes de arquivo simples (sem caracteres especiais)
-- Numere sequencialmente para controlar a ordem
-- Adicione links internos quando relevante
-- Inclua exemplos práticos sempre que possível
+- Use plain Markdown for maximum compatibility
+- Keep file names simple (no special characters)
+- Number sequentially to control order
+- Add internal links when relevant
+- Include practical examples whenever possible
 
-## Referências
+## References
 
 - [MyST Markdown Docs](https://mystmd.org/guide/markdown)
 - [Jupyter Book](https://jupyterbook.org/)

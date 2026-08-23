@@ -1,3 +1,3 @@
-# Coleta de Dados
+# Data Collection
 
-Metodologia para coleta e tabulação de dados de poços e níveis d'água.
+Methodology for collecting and tabulating well data and water level measurements.

@@ -1,3 +1,3 @@
-# Conceitos de Hidrogeologia
+# Hydrogeology Concepts
 
-Introdução aos conceitos básicos de superfícies potenciométricas e fluxo subterrâneo.
+Introduction to basic concepts of potentiometric surfaces and groundwater flow.

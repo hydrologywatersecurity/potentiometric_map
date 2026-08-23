@@ -1,22 +1,22 @@
 version: 1
 
 project:
-  title: Tutorial de Mapas Potenciométricos
-  description: Guia prático para interpolação espacial e análise piezométrica em Python.
+  title: Potentiometric Maps Tutorial
+  description: Practical guide for spatial interpolation and piezometric analysis in Python.
   authors:
     - name: Bruno Ken Marchezepe
       affiliation: USP São Carlos
   github: https://github.com/hydrologywatersecurity/potentiometric_map
   open_access: true
 
-  # Estrutura do Sumário / Menu Lateral (Table of Contents)
+  # Table of Contents structure / Left menu
   toc:
     - file: intro.md
-    - title: "Fundamentos"
+    - title: "Fundamentals"
       children:
         - file: content/01_conceitos_hidrogeologia.md
         - file: content/02_coleta_dados.md
-    - title: "Prática em Python"
+    - title: "Python Practice"
       children:
         - file: notebooks/01_processamento_dados.ipynb
         - file: notebooks/02_interpolacao_krigagem.ipynb
@@ -30,5 +30,5 @@ site:
     - title: GitHub
       url: https://github.com/hydrologywatersecurity/potentiometric_map
   actions:
-    - title: Abrir no Colab
+    - title: Open in Colab
       url: https://colab.research.google.com/github/hydrologywatersecurity/potentiometric_map

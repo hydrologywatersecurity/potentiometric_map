@@ -1,131 +1,131 @@
-# Mapa Potenciométrico - Tutorial Interativo
+# Potentiometric Map - Interactive Tutorial
 
-Tutorial prático para interpolação espacial e análise piezométrica em Python.
+Practical tutorial for spatial interpolation and piezometric analysis in Python.
 
-## 📚 Sobre o Projeto
+## 📚 About the Project
 
-Este repositório contém um tutorial interativo sobre criação e análise de mapas potenciométricos, desenvolvido com MyST (Markedly Structured Text) e hospedado no GitHub Pages.
+This repository contains an interactive tutorial on creating and analyzing potentiometric maps, developed with MyST (Markedly Structured Text) and hosted on GitHub Pages.
 
-## 🚀 Publicação Automática
+## 🚀 Automatic Publishing
 
-A página do tutorial é **publicada automaticamente** sempre que há um push na branch `main` que afeta a pasta `potentiometric_map_tutorial/`.
+The tutorial page is **automatically published** whenever there is a push to the `main` branch that affects the `potentiometric_map_tutorial/` folder.
 
-### Workflow do GitHub Actions
+### GitHub Actions Workflow
 
-O arquivo `.github/workflows/static.yml` configura:
+The `.github/workflows/static.yml` file configures:
 
-1. **Trigger**: Detecta mudanças em `potentiometric_map_tutorial/**` ou no próprio workflow
-2. **Build**: Compila o site MyST em HTML
-3. **Deploy**: Publica automaticamente no GitHub Pages
+1. **Trigger**: Detects changes in `potentiometric_map_tutorial/**` or the workflow itself
+2. **Build**: Compiles the MyST site to HTML
+3. **Deploy**: Automatically publishes to GitHub Pages
 
-**Acesso**: A página estará disponível em `https://hydrologywatersecurity.github.io/potentiometric_map/`
+**Access**: The page will be available at `https://hydrologywatersecurity.github.io/potentiometric_map/`
 
-## 📁 Estrutura do Repositório
+## 📁 Repository Structure
 
 ```
 potentiometric_map/
 ├── .github/
 │   └── workflows/
-│       └── static.yml           # Workflow de deploy automático
-├── potentiometric_map_tutorial/ # Pasta principal do tutorial
-│   ├── myst.yml                 # Configuração MyST
-│   ├── intro.md                 # Página inicial
-│   ├── content/                 # Conteúdo em Markdown
-│   ├── notebooks/               # Notebooks Jupyter
-│   └── _build/                  # Saída compilada (ignorada pelo git)
-├── .gitignore                   # Configuração de arquivos ignorados
-└── README.md                    # Este arquivo
+│       └── static.yml           # Automatic deployment workflow
+├── potentiometric_map_tutorial/ # Main tutorial folder
+│   ├── myst.yml                 # MyST configuration
+│   ├── intro.md                 # Home page
+│   ├── content/                 # Markdown content
+│   ├── notebooks/               # Jupyter notebooks
+│   └── _build/                  # Compiled output (ignored by git)
+├── .gitignore                   # Git ignore configuration
+└── README.md                    # This file
 ```
 
-## 🛠️ Como Trabalhar no Tutorial
+## 🛠️ How to Work on the Tutorial
 
-### Pré-requisitos
+### Prerequisites
 
 - Node.js 20+
 - MyST CLI
 
-### Instalação
+### Installation
 
 ```bash
-# Instalar MyST CLI globalmente
+# Install MyST CLI globally
 npm install -g mystmd
 
-# Ou, localmente (recomendado):
+# Or, locally (recommended):
 cd potentiometric_map_tutorial
 npm install mystmd
 ```
 
-### Desenvolvimento Local
+### Local Development
 
 ```bash
 cd potentiometric_map_tutorial
 
-# Compilar o site
+# Compile the site
 myst build --html
 
-# Abrir em um servidor local (se disponível)
+# Serve locally (if available)
 myst serve
 ```
 
-## 📝 Edição de Conteúdo
+## 📝 Content Editing
 
-### Adicionar página em Markdown
+### Add a Markdown page
 
-1. Criar arquivo em `content/XX_nome_pagina.md`
-2. Adicionar referência ao `myst.yml`:
-
-```yaml
-toc:
-  - file: content/XX_nome_pagina.md
-```
-
-### Adicionar Notebook
-
-1. Colocar arquivo `.ipynb` em `notebooks/`
-2. Adicionar referência ao `myst.yml`:
+1. Create a file in `content/XX_page_name.md`
+2. Add reference to `myst.yml`:
 
 ```yaml
 toc:
-  - file: notebooks/XX_nome_notebook.ipynb
+  - file: content/XX_page_name.md
 ```
 
-## 📋 Checklist para Deploy
+### Add a Notebook
 
-Antes de fazer push, certifique-se de:
+1. Place `.ipynb` file in `notebooks/`
+2. Add reference to `myst.yml`:
 
-- ✅ Conteúdo está em `potentiometric_map_tutorial/`
-- ✅ Arquivo `myst.yml` está atualizado com as novas páginas
-- ✅ Nenhum arquivo em `_build/` foi commitado (verificar `.gitignore`)
-- ✅ Links internos estão corretos
-- ✅ Imagens têm caminhos relativos
+```yaml
+toc:
+  - file: notebooks/XX_notebook_name.ipynb
+```
 
-## 🚀 Realizando Deploy
+## 📋 Deployment Checklist
 
-Simplesmente faça push para a branch `main`:
+Before pushing, make sure:
+
+- ✅ Content is in `potentiometric_map_tutorial/`
+- ✅ File `myst.yml` is updated with new pages
+- ✅ No files in `_build/` are committed (check `.gitignore`)
+- ✅ Internal links are correct
+- ✅ Images have relative paths
+
+## 🚀 Performing Deployment
+
+Simply push to the `main` branch:
 
 ```bash
 git add .
-git commit -m "Atualizar tutorial"
+git commit -m "Update tutorial"
 git push origin main
 ```
 
-O GitHub Actions executará automaticamente:
-1. Compila o site em HTML
-2. Faz upload dos arquivos para GitHub Pages
-3. Publica a página
+GitHub Actions will automatically:
+1. Compile the site to HTML
+2. Upload files to GitHub Pages
+3. Publish the page
 
-Aguarde ~30 segundos para a página estar disponível.
+Wait ~30 seconds for the page to be available.
 
-## 📖 Referências
+## 📖 References
 
 - [MyST Documentation](https://mystmd.org)
 - [GitHub Pages](https://pages.github.com/)
 - [GitHub Actions](https://docs.github.com/en/actions)
 
-## 👨‍💻 Autor
+## 👨‍💻 Author
 
 Bruno Ken Marchezepe - USP São Carlos
 
-## 📄 Licença
+## 📄 License
 
-Veja arquivo `LICENSE`
+See `LICENSE` file

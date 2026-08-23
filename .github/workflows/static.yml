@@ -8,7 +8,7 @@ on:
       - 'potentiometric_map_tutorial/**'
       - '.github/workflows/static.yml'
 
-# Permissões necessárias para publicar no GitHub Pages
+# Permissions required to publish to GitHub Pages
 permissions:
   contents: read
   pages: write
@@ -25,28 +25,28 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout do repositório
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Configurar Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: Instalar MyST CLI
+      - name: Install MyST CLI
         run: npm install -g mystmd
 
-      - name: Compilar o site em HTML
+      - name: Build site to HTML
         run: cd potentiometric_map_tutorial && myst build --html
 
-      - name: Configurar GitHub Pages
+      - name: Setup GitHub Pages
         uses: actions/configure-pages@v4
 
-      - name: Upload dos arquivos compilados
+      - name: Upload compiled files
         uses: actions/upload-pages-artifact@v3
         with:
           path: 'potentiometric_map_tutorial/_build/html'
 
-      - name: Deploy no GitHub Pages
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

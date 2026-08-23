@@ -1,129 +1,129 @@
-# Configuração de Deploy - Potentiometric Map
+# Deployment Configuration - Potentiometric Map
 
-## 📋 Visão Geral
+## 📋 Overview
 
-Este documento descreve a configuração de deploy automático do projeto usando GitHub Actions e GitHub Pages.
+This document describes the automatic deployment configuration of the project using GitHub Actions and GitHub Pages.
 
-## 🔧 Componentes Configurados
+## 🔧 Configured Components
 
 ### 1. GitHub Actions Workflow (`.github/workflows/static.yml`)
 
-**O que faz:**
-- Dispara automaticamente quando há push na branch `main`
-- Apenas executa quando há mudanças em `potentiometric_map_tutorial/` ou no próprio workflow
-- Compila o site MyST em HTML
-- Publica automaticamente no GitHub Pages
+**What it does:**
+- Triggers automatically when there is a push to the `main` branch
+- Only executes when there are changes in `potentiometric_map_tutorial/` or the workflow itself
+- Compiles the MyST site to HTML
+- Automatically publishes to GitHub Pages
 
-**Fluxo:**
+**Flow:**
 ```
-Push para main
+Push to main
     ↓
-GitHub Actions verifica mudanças
+GitHub Actions checks changes
     ↓
-Se houver mudanças em potentiometric_map_tutorial/ ou workflow:
+If there are changes in potentiometric_map_tutorial/ or workflow:
     ↓
 - Setup Node.js 20
-- Instala MyST CLI via npm
-- Compila: cd potentiometric_map_tutorial && myst build --html
-- Configura GitHub Pages
-- Upload artefato de _build/html
-- Deploy automático
+- Install MyST CLI via npm
+- Compile: cd potentiometric_map_tutorial && myst build --html
+- Configure GitHub Pages
+- Upload _build/html artifact
+- Automatic deployment
 ```
 
 ### 2. MyST Configuration (`potentiometric_map_tutorial/myst.yml`)
 
-**Configurações principais:**
-- **title**: Título do projeto
-- **toc**: Estrutura de navegação (Table of Contents)
-- **site.template**: Usa `book-theme` para layout de livro
-- **site.base_url**: URL de publicação no GitHub Pages
-- **site.actions**: Links adicionais (Colab, etc)
+**Main settings:**
+- **title**: Project title
+- **toc**: Navigation structure (Table of Contents)
+- **site.template**: Uses `book-theme` for book-like layout
+- **site.base_url**: Publication URL on GitHub Pages
+- **site.actions**: Additional links (Colab, etc)
 
-### 3. .gitignore na Raiz
+### 3. .gitignore at Root
 
-**Arquivos ignorados:**
-- `_build/` - Output compilado do MyST
-- `node_modules/` - Dependências npm
-- `__pycache__/` - Cache Python
-- `.venv/`, `venv/` - Ambientes virtuais
-- `.vscode/`, `.idea/` - Configurações de IDEs
-- `.env` - Variáveis de ambiente
-- E outros arquivos temporários
+**Ignored files:**
+- `_build/` - Compiled MyST output
+- `node_modules/` - npm dependencies
+- `__pycache__/` - Python cache
+- `.venv/`, `venv/` - Virtual environments
+- `.vscode/`, `.idea/` - IDE configurations
+- `.env` - Environment variables
+- And other temporary files
 
-## 🚀 Processo de Deploy
+## 🚀 Deployment Process
 
 ### Trigger
-- Push na branch `main` com mudanças em `potentiometric_map_tutorial/**` ou `.github/workflows/static.yml`
+- Push to `main` branch with changes in `potentiometric_map_tutorial/**` or `.github/workflows/static.yml`
 
-### Execução
-1. GitHub Actions inicia job `deploy`
-2. Node.js 20 é configurado
-3. MyST CLI é instalado globalmente
-4. `myst build --html` é executado dentro de `potentiometric_map_tutorial/`
-5. Arquivos compilados são coletados de `potentiometric_map_tutorial/_build/html`
-6. Pagina é publicada em `https://hydrologywatersecurity.github.io/potentiometric_map/`
+### Execution
+1. GitHub Actions starts `deploy` job
+2. Node.js 20 is configured
+3. MyST CLI is installed globally
+4. `myst build --html` is executed inside `potentiometric_map_tutorial/`
+5. Compiled files are collected from `potentiometric_map_tutorial/_build/html`
+6. Page is published at `https://hydrologywatersecurity.github.io/potentiometric_map/`
 
-### Tempo
-- Deploy geralmente leva 1-2 minutos
-- Página fica disponível ~30 segundos após conclusão
+### Timing
+- Deployment usually takes 1-2 minutes
+- Page becomes available ~30 seconds after completion
 
-## 📊 Status do Deploy
+## 📊 Deployment Status
 
-Acesse:
+Access:
 - **Actions**: https://github.com/hydrologywatersecurity/potentiometric_map/actions
-- **Logs**: Clique no último run para ver detalhes
-- **Página Publicada**: https://hydrologywatersecurity.github.io/potentiometric_map/
+- **Logs**: Click the latest run to see details
+- **Published Page**: https://hydrologywatersecurity.github.io/potentiometric_map/
 
-## ⚙️ Configuração do GitHub Pages
+## ⚙️ GitHub Pages Configuration
 
-**Requerimentos (configurar em Settings → Pages):**
+**Requirements (configure in Settings → Pages):**
 - Source: Deploy from a branch
-- Branch: `gh-pages` (criada automaticamente pelo workflow)
+- Branch: `gh-pages` (automatically created by workflow)
 - Folder: `/ (root)`
 
-O workflow cria e atualiza a branch `gh-pages` automaticamente.
+The workflow automatically creates and updates the `gh-pages` branch.
 
-## 🔐 Permissões Necessárias
+## 🔐 Required Permissions
 
-O workflow requer estas permissões (já configuradas):
+The workflow requires these permissions (already configured):
 ```yaml
 permissions:
-  contents: read        # Ler repositório
-  pages: write         # Publicar no Pages
-  id-token: write      # OIDC token para deploy
+  contents: read        # Read repository
+  pages: write         # Publish to Pages
+  id-token: write      # OIDC token for deployment
 ```
 
 ## 🛠️ Troubleshooting
 
-### Deploy falha com "myst build" error
-- Verificar sintaxe do `myst.yml`
-- Garantir que arquivos no TOC existem
-- Verificar formato dos Markdown/Notebooks
+### Deployment fails with "myst build" error
+- Check syntax of `myst.yml`
+- Ensure TOC files exist
+- Check Markdown/Notebooks format
 
-### Página não atualiza
-- Aguardar ~1 minuto após push
-- Limpar cache do navegador (Ctrl+Shift+Delete)
-- Verificar GitHub Actions → Actions tab
+### Page doesn't update
+- Wait ~1 minute after push
+- Clear browser cache (Ctrl+Shift+Delete)
+- Check GitHub Actions → Actions tab
 
-### Build bem-sucedido mas página não muda
-- Verificar branch `gh-pages` foi atualizada
-- Verificar Settings → Pages → Source está correto
-- Tentar acesso com URL completa: `https://hydrologywatersecurity.github.io/potentiometric_map/`
+### Build successful but page doesn't change
+- Check if `gh-pages` branch was updated
+- Verify Settings → Pages → Source is correct
+- Try accessing with full URL: `https://hydrologywatersecurity.github.io/potentiometric_map/`
 
-## 📝 Modificações Futuras
+## 📝 Future Modifications
 
-### Para alterar estrutura:
-1. Editar `potentiometric_map_tutorial/myst.yml`
-2. Adicionar/remover páginas em `content/` ou `notebooks/`
-3. Fazer commit e push
+### To change structure:
+1. Edit `potentiometric_map_tutorial/myst.yml`
+2. Add/remove pages in `content/` or `notebooks/`
+3. Commit and push
 
-### Para usar diferentes versões do MyST:
-1. Editar `.github/workflows/static.yml`
-2. Mudar `node-version: 20` ou `npm install -g mystmd@versão`
+### To use different MyST versions:
+1. Edit `.github/workflows/static.yml`
+2. Change `node-version: 20` or `npm install -g mystmd@version`
 
-### Para adicionar dependências Python:
-1. Criar `requirements.txt` em `potentiometric_map_tutorial/`
-2. Adicionar step ao workflow:
+### To add Python dependencies:
+1. Create `requirements.txt` in `potentiometric_map_tutorial/`
+2. Add step to workflow:
 ```yaml
 - name: Setup Python
   uses: actions/setup-python@v5
@@ -136,16 +136,16 @@ permissions:
     pip install -r requirements.txt
 ```
 
-## 📚 Referências
+## 📚 References
 
 - [MyST CLI Docs](https://mystmd.org/guide/quickstart)
 - [GitHub Pages Docs](https://docs.github.com/en/pages)
 - [GitHub Actions Documentation](https://docs.github.com/en/actions)
 - [OIDC in GitHub Actions](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)
 
-## 🆘 Suporte
+## 🆘 Support
 
-Para problemas com deploy:
-1. Verificar logs em GitHub Actions
-2. Executar `myst build --html` localmente para reproduzir
-3. Verificar arquivo `.github/workflows/static.yml` para sincronização
+For deployment issues:
+1. Check logs in GitHub Actions
+2. Run `myst build --html` locally to reproduce
+3. Check `.github/workflows/static.yml` for sync

@@ -1,6 +1,6 @@
-# Tutorial de Mapas Potenciométricos
+# Potentiometric Maps Tutorial
 
-Bem-vindo ao tutorial prático para geração e análise de mapas potenciométricos e dados hidrogeológicos.
+Welcome to the practical tutorial for generating and analyzing potentiometric maps and hydrogeological data.
 
-## Conteúdo
-Navegue pelo menu lateral para acessar os fundamentos teóricos e os notebooks com código Python executável.
+## Content
+Navigate through the left menu to access theoretical foundations and notebooks with executable Python code.
