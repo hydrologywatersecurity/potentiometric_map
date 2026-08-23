@@ -6,7 +6,7 @@ project:
   authors:
     - name: Bruno Ken Marchezepe
       affiliation: USP São Carlos
-  github: https://github.com/hydro.watersec/potentiometric_map
+  github: https://github.com/hydrologywatersecurity/potentiometric_map
   open_access: true
 
   # Estrutura do Sumário / Menu Lateral (Table of Contents)
@@ -24,10 +24,11 @@ project:
 
 site:
   template: book-theme
-  base_url: https://github.com/hydro.watersec/potentiometric_map
+  base_url: https://hydrologywatersecurity.github.io/potentiometric_map/
+  github: https://github.com/hydrologywatersecurity/potentiometric_map
   nav:
     - title: GitHub
-      url: https://github.com/hydro.watersec/potentiometric_map
+      url: https://github.com/hydrologywatersecurity/potentiometric_map
   actions:
     - title: Abrir no Colab
-      url: https://colab.research.google.com/github/hydro.watersec/potentiometric_map
+      url: https://colab.research.google.com/github/hydrologywatersecurity/potentiometric_map

@@ -1,9 +1,12 @@
-name: Deploy Jupyter Book to GitHub Pages
+name: Deploy Potentiometric Map Tutorial to GitHub Pages
 
 on:
   push:
     branches:
-      - main # ou master, dependendo do nome da sua branch principal
+      - main
+    paths:
+      - 'potentiometric_map_tutorial/**'
+      - '.github/workflows/static.yml'
 
 # Permissões necessárias para publicar no GitHub Pages
 permissions:
@@ -34,7 +37,7 @@ jobs:
         run: npm install -g mystmd
 
       - name: Compilar o site em HTML
-        run: myst build --html
+        run: cd potentiometric_map_tutorial && myst build --html
 
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v4
@@ -42,7 +45,7 @@ jobs:
       - name: Upload dos arquivos compilados
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '_build/html'
+          path: 'potentiometric_map_tutorial/_build/html'
 
       - name: Deploy no GitHub Pages
         id: deployment
