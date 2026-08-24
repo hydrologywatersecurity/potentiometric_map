@@ -16,13 +16,19 @@ project:
     - file: intro.md
     - title: "Fundamentals"
       children:
-        - file: content/01_concepts.md
-        - file: content/02_data_collection.md
-    - title: "ArcGIS Practice"
+        - file: content/01_conceitos_hidrogeologia.md
+        - file: content/02_coleta_dados.md
+    - title: "Data Processing"
       children:
-        - file: notebooks/01_data_preprocessing.md
-        - file: content/03_kriging_interpolation.md
-        - file: content/04_potentiometric_map_generation.md
+        - file: content/03_data_processing_arcgis.md
+        - file: content/04_water_table_calculation.md
+    - title: "Spatial Interpolation"
+      children:
+        - file: content/05_interpolation_methods.md
+        - file: content/06_equipotential_extraction.md
+    - title: "Map Finalization"
+      children:
+        - file: content/07_contour_clipping.md
 
 site:
   template: book-theme
