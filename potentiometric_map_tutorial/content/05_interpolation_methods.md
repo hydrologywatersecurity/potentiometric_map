@@ -37,10 +37,24 @@ Thin Plate Spline interpolation is preferred because it:
    - Press **Ctrl + Alt + T**
    - Or navigate: **Processing** → **Toolbox**
 
+:::{figure} ../assets/images/22_figure.png
+:alt: QGIS Processing Toolbox opened from menu
+:width: 600px
+
+**Figure 1:** Open the Processing Toolbox using Ctrl + Alt + T keyboard shortcut or through the Processing menu.
+:::
+
 #### Step 2: Navigate to Interpolation Tool
 
 1. Expand the tool hierarchy:
    - **SAGA** → **Raster - Spline Interpolation** → **Thin Plate Spline**
+
+:::{figure} ../assets/images/23_figure.png
+:alt: SAGA menu hierarchy expanded showing Raster Spline Interpolation options
+:width: 600px
+
+**Figure 2:** Navigate to SAGA → Raster - Spline Interpolation → Thin Plate Spline to access the interpolation tool.
+:::
 
 #### Step 3: Configure Parameters
 
@@ -54,6 +68,13 @@ Set the following parameters:
 | **Cellsize** | 0.001 | Fine resolution (about 100m at equator) |
 | **Minimum points** | 1 | Allow interpolation with 1 point nearby |
 | **Target Grid** | `na_freatic_interpolado_TPS.sdat` | Output file name and format |
+
+:::{figure} ../assets/images/26_figure.png
+:alt: TPS parameters dialog showing Points, Attribute, Output extent, and Cellsize fields
+:width: 600px
+
+**Figure 3:** Configure TPS parameters: select your wells layer (`pocos_mde`), interpolation field (`na_freatic`), output extent, and cell size (0.001 degrees).
+:::
 
 ### Key Parameter Explanations
 

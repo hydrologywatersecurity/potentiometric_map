@@ -18,6 +18,13 @@ In ArcGIS/QGIS:
 1. Navigate to: **Vector** → **Geoprocessing Tools** → **Clip...**
 2. This tool intersects your contours with your boundary polygon
 
+:::{figure} ../assets/images/36_figure.png
+:alt: Vector menu showing Geoprocessing Tools submenu with Clip option
+:width: 600px
+
+**Figure 1:** Access the Clip tool through Vector → Geoprocessing Tools → Clip to intersect your contours with study area boundaries.
+:::
+
 ### Step 2: Configure Clip Parameters
 
 Set the following parameters:
@@ -27,6 +34,13 @@ Set the following parameters:
 | **Input layer** | `linhas_equipotenciais` | Your full contour shapefile |
 | **Overlay layer (Mask)** | `contorno_sab` | Aquifer boundary polygon |
 | **Output file** | `linhas_equipotenciais_recortado.shp` | Clipped output shapefile |
+
+:::{figure} ../assets/images/37_figure.png
+:alt: Clip tool dialog showing Input layer, Overlay layer, and Output file settings
+:width: 600px
+
+**Figure 2:** Configure clip parameters: select your contour shapefile as input, the aquifer boundary (`contorno_sab`) as the mask layer, and specify the clipped output filename.
+:::
 
 ### Step 3: Execute Clipping
 

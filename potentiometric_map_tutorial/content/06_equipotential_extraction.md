@@ -18,6 +18,13 @@ In ArcGIS/QGIS:
 1. Navigate to: **Raster** → **Extraction** → **Contour...**
 2. This tool converts your interpolated raster to vector contour lines
 
+:::{figure} ../assets/images/31_figure.png
+:alt: Raster menu with Extraction submenu showing Contour tool option
+:width: 600px
+
+**Figure 1:** Access the Contour tool through Raster → Extraction → Contour to convert your interpolated raster surface to vector contour lines.
+:::
+
 ### Step 2: Configure Contour Parameters
 
 Set the following parameters:
@@ -28,6 +35,13 @@ Set the following parameters:
 | **Interval between contours** | 10.0 meters | Creates a contour every 10m elevation change |
 | **Attribute name** | `ELEV` | Field name storing elevation value |
 | **Output contours** | `linhas_equipotenciais.shp` | Output shapefile name |
+
+:::{figure} ../assets/images/32_figure.png
+:alt: Contour tool dialog with interval set to 10.0, attribute name ELEV, and output filename
+:width: 600px
+
+**Figure 2:** Configure contour parameters: set interval to 10 meters, attribute to ELEV, and specify the output filename as `linhas_equipotenciais.shp`.
+:::
 
 ### Choosing Contour Interval
 
