@@ -37,22 +37,57 @@ This calculated value represents the potentiometric head at that well location.
 1. Open the **Attribute Table** for your `pocos_mde` layer:
    - Right-click on the layer → **Attribute Table**
 
+:::{figure} ../assets/images/28_arcgis_attribute_table.png
+:alt: ArcGIS Attribute Table showing well data with ID, coordinates, elevation, water depth columns
+:width: 600px
+
+**Figure 1:** Attribute Table with well data ready for calculation field.
+:::
+
 2. Add a new field for the calculated hydraulic head:
    - Click **Add Field** button
-   - Field name: `na_freatic` (Portuguese: "nível freático" = water table level)
+   - Field name: `water_table_head` (English version)
    - Data type: **Double**
    - Click **OK**
 
+:::{figure} ../assets/images/29_arcgis_add_field.png
+:alt: ArcGIS Add Field dialog
+:width: 600px
+
+**Figure 2:** Add new field for water table head calculations.
+:::
+
 ### Calculate Values
 
-1. Right-click on the new `na_freatic` field → **Field Calculator**
+1. Right-click on the new `water_table_head` field → **Field Calculator**
+
+:::{figure} ../assets/images/30_arcgis_field_calculator.png
+:alt: ArcGIS Field Calculator toolbar appearing above attribute table
+:width: 600px
+
+**Figure 3:** Field Calculator toolbar for expression entry.
+:::
 
 2. Enter the calculation formula:
    - Use the names of your existing fields
    - Typical formula: `!elevation! - !water_depth!`
    - Adjust field names to match your data structure
 
+:::{figure} ../assets/images/31_arcgis_expression_builder.png
+:alt: ArcGIS Expression Builder dialog with field list and formula
+:width: 600px
+
+**Figure 4:** Expression Builder showing field selection and formula entry: !elevation! - !median_water_depth!
+:::
+
 3. Click **OK** to calculate values for all wells
+
+:::{figure} ../assets/images/32_arcgis_calculated_values.png
+:alt: ArcGIS Attribute Table showing calculated water_table_head values
+:width: 600px
+
+**Figure 5:** Calculated hydraulic head values now populated in the water_table_head column.
+:::
 
 ### Verify Results
 

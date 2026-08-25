@@ -31,29 +31,31 @@ Thin Plate Spline interpolation is preferred because it:
 
 ### Implementation Steps
 
-#### Step 1: Open Processing Toolbox
+#### Step 1: Open Analysis Tools
 
-1. In ArcGIS (via QGIS bridge or direct tool):
-   - Press **Ctrl + Alt + T**
-   - Or navigate: **Processing** → **Toolbox**
+1. In ArcGIS Pro:
+   - Click the **Analysis** tab
+   - Navigate through the **Tools**
 
-:::{figure} ../assets/images/22_figure.png
-:alt: QGIS Processing Toolbox opened from menu
+:::{figure} ../assets/images/33_arcgis_analysis_tools.png
+:alt: ArcGIS Analysis tab showing Tools ribbon
 :width: 600px
 
-**Figure 1:** Open the Processing Toolbox using Ctrl + Alt + T keyboard shortcut or through the Processing menu.
+**Figure 1:** Open the Analysis tab to access geoprocessing tools.
 :::
 
-#### Step 2: Navigate to Interpolation Tool
+#### Step 2: Navigate to Empirical Bayesian Kriging
 
 1. Expand the tool hierarchy:
-   - **SAGA** → **Raster - Spline Interpolation** → **Thin Plate Spline**
+   - **Analysis** → **Tools**
+   - Find **Empirical Bayesian Kriging**
+   - This tool performs TPS interpolation via SAGA backend
 
-:::{figure} ../assets/images/23_figure.png
-:alt: SAGA menu hierarchy expanded showing Raster Spline Interpolation options
+:::{figure} ../assets/images/34_arcgis_ebk_dialog.png
+:alt: ArcGIS Empirical Bayesian Kriging geoprocessing dialog
 :width: 600px
 
-**Figure 2:** Navigate to SAGA → Raster - Spline Interpolation → Thin Plate Spline to access the interpolation tool.
+**Figure 2:** Geoprocessing panel showing Empirical Bayesian Kriging parameters.
 :::
 
 #### Step 3: Configure Parameters
@@ -62,18 +64,40 @@ Set the following parameters:
 
 | Parameter | Value | Notes |
 |---|---|---|
-| **Points** | `pocos_mde` | Your filtered wells layer |
-| **Attribute** | `na_freatic` | The water table elevation field |
-| **Output extent** | Calculate from Layer → `dem` | Use DEM as reference extent |
-| **Cellsize** | 0.001 | Fine resolution (about 100m at equator) |
-| **Minimum points** | 1 | Allow interpolation with 1 point nearby |
-| **Target Grid** | `na_freatic_interpolado_TPS.sdat` | Output file name and format |
+| **Input Features** | `catawba_basin_wells_filtered_XYTabletoPoints` | Your filtered wells layer |
+| **Z Value Field** | `water_table_head` | The water table elevation field |
+| **Output Geostatistical Layer** | `TPS_interpolation` | Output layer name |
+| **Output Cell Size** | 1.0E-02 (0.01 degrees) | Fine resolution |
+| **Semivariogram Model Type** | **Thin plate spline** | Essential for TPS method |
 
-:::{figure} ../assets/images/26_figure.png
-:alt: TPS parameters dialog showing Points, Attribute, Output extent, and Cellsize fields
+:::{figure} ../assets/images/35_arcgis_tps_interpolation.png
+:alt: ArcGIS TPS interpolation result showing colored surface
 :width: 600px
 
-**Figure 3:** Configure TPS parameters: select your wells layer (`pocos_mde`), interpolation field (`na_freatic`), output extent, and cell size (0.001 degrees).
+**Figure 3:** TPS interpolation result displaying smooth potentiometric surface.
+:::
+
+#### Step 4: Style the Result
+
+1. Right-click the output raster layer
+2. Apply visualization styling:
+   - **Symbology** → **Raster**
+   - Select **Continuous Color Ramp**
+   - Recommended: **Turbo** color scheme
+   - Set rendering to **Linear** gradient
+
+:::{figure} ../assets/images/36_arcgis_symbology_classes.png
+:alt: ArcGIS Symbology panel showing classification options
+:width: 600px
+
+**Figure 4:** Configure symbology with geometric interval classification.
+:::
+
+:::{figure} ../assets/images/37_arcgis_tps_result_colored.png
+:alt: ArcGIS TPS result with Turbo color ramp applied
+:width: 600px
+
+**Figure 5:** Final styled TPS surface with color classification.
 :::
 
 ### Key Parameter Explanations
@@ -113,7 +137,7 @@ The styled raster now displays your interpolated potentiometric surface!
 Use IDW if SAGA is unavailable or for quick analysis:
 
 - Simpler workflow
-- Native QGIS tools
+- Native ArcGIS tools
 - Faster computation
 - Good for validation
 
@@ -121,23 +145,33 @@ Use IDW if SAGA is unavailable or for quick analysis:
 
 #### Step 1: Access IDW Tool
 
-1. Open **Processing Toolbox** (Ctrl + Alt + T)
-2. Search for: **"IDW Interpolation"**
-3. Select the QGIS native IDW tool
+1. Open **Analysis** → **Tools**
+2. Search for: **"IDW"**
+3. Select **Inverse Distance Weighted** interpolation tool
+
+:::{figure} ../assets/images/38_arcgis_idw_dialog.png
+:alt: ArcGIS IDW interpolation geoprocessing dialog
+:width: 600px
+
+**Figure 6:** IDW tool geoprocessing panel with parameters.
+:::
 
 #### Step 2: Configure Parameters
 
-- **Input layer**: `pocos_mde`
-- **Interpolation attribute**: `na_freatic`
-- **Distance coefficient**: 2 (standard)
-- **Extent**: Set to `dem` layer
-- **Output resolution**: 0.001 degrees (same as TPS)
-- **Output file**: `superficie_interpolada_IDW.tif`
+- **Input Features**: `catawba_basin_wells_filtered_XYTabletoPoints`
+- **Z Value Field**: `water_table_head`
+- **Output Geostatistical Layer**: `IDW_interpolation`
+- **Cell Size**: 1E-02 (same as TPS)
+- **Power**: 2 (standard for IDW)
 
 #### Step 3: Execute and Style
 
-1. Click **Run**
-2. Apply similar styling (Turbo color ramp, linear gradient)
+:::{figure} ../assets/images/39_arcgis_idw_result.png
+:alt: ArcGIS IDW result showing interpolated surface
+:width: 600px
+
+**Figure 7:** IDW interpolation result (note local peaks typical of IDW method).
+:::
 
 ## Quality Assessment
 

@@ -12,18 +12,29 @@
 
 ## Generating Contour Lines from Raster
 
-### Step 1: Open Contour Tool
+### Clipping to Aquifer Boundary
 
-In ArcGIS/QGIS:
-1. Navigate to: **Raster** → **Extraction** → **Contour...**
-2. This tool converts your interpolated raster to vector contour lines
+Before extracting contours, clip the interpolated raster to your study area:
 
-:::{figure} ../assets/images/31_figure.png
-:alt: Raster menu with Extraction submenu showing Contour tool option
+:::{figure} ../assets/images/40_arcgis_extract_by_mask.png
+:alt: ArcGIS Extract by Mask geoprocessing dialog
 :width: 600px
 
-**Figure 1:** Access the Contour tool through Raster → Extraction → Contour to convert your interpolated raster surface to vector contour lines.
+**Figure 1:** Use Extract by Mask to clip the TPS raster to the Catawba River Basin boundary.
 :::
+
+1. Navigate to: **Analysis** → **Tools** → **Extract by Mask**
+2. Configure:
+   - **Input Raster**: `TPS_interpolation`
+   - **Input Mask**: `catawba_river_basin_boundary`
+   - **Output Raster**: `TPS_mask`
+3. Click **Run**
+
+### Step 1: Open Contour Tool
+
+In ArcGIS Pro:
+1. Navigate to: **Analysis** → **Tools** → **Contours**
+2. This tool converts your clipped raster to vector contour lines
 
 ### Step 2: Configure Contour Parameters
 
@@ -31,17 +42,14 @@ Set the following parameters:
 
 | Parameter | Setting | Notes |
 |---|---|---|
-| **Input layer** | `na_freatic_interpolado_TPS` | Your interpolated surface raster |
-| **Interval between contours** | 10.0 meters | Creates a contour every 10m elevation change |
-| **Attribute name** | `ELEV` | Field name storing elevation value |
-| **Output contours** | `linhas_equipotenciais.shp` | Output shapefile name |
+| **Input Raster** | `TPS_mask` | Your clipped interpolated surface |
+| **Contour Interval** | 50 meters | Creates a contour every 50m elevation change |
+| **Base Contour** | 0 | Starting elevation value |
+| **Output Feature Class** | `Contour_TPS_mask1` | Output contour lines |
 
-:::{figure} ../assets/images/32_figure.png
-:alt: Contour tool dialog with interval set to 10.0, attribute name ELEV, and output filename
-:width: 600px
-
-**Figure 2:** Configure contour parameters: set interval to 10 meters, attribute to ELEV, and specify the output filename as `linhas_equipotenciais.shp`.
-:::
+1. Access **Analysis** → **Tools** → **Contours**
+2. Set interval to 50 meters for regional scale visualization
+3. Click **Run**
 
 ### Choosing Contour Interval
 

@@ -1,5 +1,12 @@
 # Fundamentals: Concepts and Study Area
 
+:::{figure} ../assets/images/01_objective_title.png
+:alt: Tutorial title and course information
+:width: 600px
+
+**Figure 1:** Course title and learning objectives.
+:::
+
 ## Objective
 
 This tutorial provides a practical guide for potentiometric surface mapping, focusing on groundwater flow analysis and spatial interpolation techniques. Through step-by-step instructions, you will learn to:
@@ -12,6 +19,13 @@ This tutorial provides a practical guide for potentiometric surface mapping, foc
 - Create professional potentiometric maps
 
 ## Study Area
+
+:::{figure} ../assets/images/02_study_area_catawba.png
+:alt: Catawba River Basin study area location
+:width: 600px
+
+**Figure 2:** Catawba River Basin location map showing study area boundaries.
+:::
 
 The **Catawba River Basin (CRB)** serves as the study area for this practical activity. This basin has well-documented groundwater data available through public databases, making it an ideal location for learning potentiometric mapping techniques.
 

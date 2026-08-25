@@ -12,35 +12,49 @@ After generating equipotential contours, you must clip them to your study area b
 
 ## Clipping to Aquifer Boundary
 
-### Step 1: Open Clipping Tool
+### Step 1: Add Labels to Contours
 
-In ArcGIS/QGIS:
-1. Navigate to: **Vector** → **Geoprocessing Tools** → **Clip...**
-2. This tool intersects your contours with your boundary polygon
+Before finalizing, add elevation labels to your contours:
 
-:::{figure} ../assets/images/36_figure.png
-:alt: Vector menu showing Geoprocessing Tools submenu with Clip option
-:width: 600px
+1. Right-click the contour layer → **Label**
+2. Enable labeling with the `Contour` field (elevation values)
+3. Adjust label properties for readability
 
-**Figure 1:** Access the Clip tool through Vector → Geoprocessing Tools → Clip to intersect your contours with study area boundaries.
-:::
+### Step 2: Style Contour Lines
 
-### Step 2: Configure Clip Parameters
+1. Right-click contour layer → **Symbology**
+2. Apply styling:
+   - **Line Color**: Dark blue or black
+   - **Line Weight**: 0.5-1.0 points
+   - **Transparency**: 70-80% for overlay visualization
+3. Optionally use different line styles for major/minor contours
 
-Set the following parameters:
+### Final Output
 
-| Parameter | Value | Notes |
-|---|---|---|
-| **Input layer** | `linhas_equipotenciais` | Your full contour shapefile |
-| **Overlay layer (Mask)** | `contorno_sab` | Aquifer boundary polygon |
-| **Output file** | `linhas_equipotenciais_recortado.shp` | Clipped output shapefile |
+Your potentiometric map is now complete with:
+- ✓ Clipped raster surface (TPS interpolation)
+- ✓ Labeled equipotential contour lines
+- ✓ Well point locations overlay
+- ✓ Study area boundaries
+- ✓ Professional styling for publication
 
-:::{figure} ../assets/images/37_figure.png
-:alt: Clip tool dialog showing Input layer, Overlay layer, and Output file settings
-:width: 600px
+## Map Composition
 
-**Figure 2:** Configure clip parameters: select your contour shapefile as input, the aquifer boundary (`contorno_sab`) as the mask layer, and specify the clipped output filename.
-:::
+For presentation-ready maps, include:
+
+1. **Main elements:**
+   - Clipped equipotential contours (primary feature)
+   - Well point locations (reference data)
+   - Study area boundary (context)
+   - Hillshade or topography (background)
+
+2. **Supporting elements:**
+   - Scale bar
+   - North arrow
+   - Legend with contour intervals
+   - Title and date
+   - Author attribution
+   - Projection information
 
 ### Step 3: Execute Clipping
 
